@@ -10,9 +10,31 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.MoviePoster > h4 {
+.Votes > p {
     color: black;
     text-align: center;
-    padding: 5px;
+    padding: 3px 0px;
+    font-weight: normal !important; 
+    margin: 5px 0px;
+    font-size: small;
+    /* border: 2px solid blue; */
+}
+
+.Votes {
+    display:flex; 
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.Votes > button {
+    border: none;
+    background-color: #ffffff;
+    width: 20px;
+    height: 20px;
+}
+
+.VoteImage {
+    width: 100%;
 }
 
