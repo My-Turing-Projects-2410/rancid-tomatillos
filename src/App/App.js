@@ -4,6 +4,9 @@ import movieDetails from '../data/movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import './App.css';
 import searchIcon from '../icons/search.png';
+import upvoteIcon from '../icons/upvote.png';
+import downvoteIcon from '../icons/downvote.png';
+
 
 function App() {
 
