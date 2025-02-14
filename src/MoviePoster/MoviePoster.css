@@ -1,0 +1,18 @@
+.MoviePoster {
+    width: 200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.MoviePoster > img {
+    width: 100%;
+    border-radius: 10px 10px 0px 0px;
+}
+
+.MoviePoster > h4 {
+    color: black;
+    text-align: center;
+    padding: 5px;
+}
+
