@@ -1,7 +1,7 @@
 import './MoviesContainer.css';
 import MoviePoster from '../MoviePoster/MoviePoster'
 
-function Movies({ movieData }) {
+function Movies({ movieData, downvote }) {
   console.log(movieData);
   const movieCards = movieData.map((movie) => {
     return (
@@ -10,6 +10,7 @@ function Movies({ movieData }) {
                     image={movie.poster_path} 
                     id={movie.id}
                     key={movie.id}
+                    downvote={downvote}
                     />
     );
   });
