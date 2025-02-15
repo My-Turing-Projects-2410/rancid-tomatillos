@@ -2,11 +2,11 @@ import './MoviePoster.css';
 import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
-function MoviePoster({ title, vote_count, image, id, handleUpvote, handleDownvote}) {
+function MoviePoster({ title, vote_count, image, id, handleUpvote, handleDownvote, handleView}) {
  
   return (
     <section className='MoviePoster'>
-      <img src={image} alt={title} />
+      <img src={image} alt={title} onClick={() => handleView("movieDetails")}/>
       <div className='Votes'>
         <button onClick={() => handleUpvote(id)}>
           <img  className='VoteImage Up' src={upvoteIcon} alt='upvote'/>

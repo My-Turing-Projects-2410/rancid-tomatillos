@@ -1,0 +1,31 @@
+.MovieDetails {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid white;
+}
+
+.Description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Backdrop {
+    width: 100%;
+  }
+
+.Title {
+    color: white;
+    align-items: center;
+    border: 2px solid pink;
+}
+
+.Genres {
+    display: flex;
+}
+
+.genre {
+    margin: 10px;
+}

@@ -1,10 +1,9 @@
 import './MoviesContainer.css';
 import MoviePoster from '../MoviePoster/MoviePoster'
 
-function Movies({ movieData, handleUpvote, handleDownvote }) {
+function Movies({ movieData, handleUpvote, handleDownvote, handleView}) {
   
   const movieCards = movieData.map((movie) => {
-   console.log('BIG movie vote: ', movie.vote_count)
     return (
 
       <MoviePoster
@@ -15,6 +14,7 @@ function Movies({ movieData, handleUpvote, handleDownvote }) {
         key={movie.id}
         handleUpvote={handleUpvote}
         handleDownvote={handleDownvote}
+        handleView={handleView}
       />
     );
   });
