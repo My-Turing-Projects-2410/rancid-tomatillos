@@ -1,20 +1,23 @@
 import './MoviesContainer.css';
 import MoviePoster from '../MoviePoster/MoviePoster'
 
-function Movies({ movieData, downvote }) {
-  console.log(movieData);
+function Movies({ movieData, handleUpvote, handleDownvote }) {
+  
   const movieCards = movieData.map((movie) => {
+   console.log('BIG movie vote: ', movie.vote_count)
     return (
-      <MoviePoster  title={movie.title} 
-                    vote_count={movie.vote_count} 
-                    image={movie.poster_path} 
-                    id={movie.id}
-                    key={movie.id}
-                    downvote={downvote}
-                    />
+
+      <MoviePoster
+        title={movie.title} 
+        vote_count={movie.vote_count} 
+        image={movie.poster_path} 
+        id={movie.id}
+        key={movie.id}
+        handleUpvote={handleUpvote}
+        handleDownvote={handleDownvote}
+      />
     );
   });
-
 
   return (
       <section className='MoviesContainer'>
