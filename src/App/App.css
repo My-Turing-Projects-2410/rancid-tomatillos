@@ -26,3 +26,8 @@ p {
   margin-top: 50px;
   color: white;
 }
+
+.Details {
+  display: flex;
+  justify-content: center;
+}
