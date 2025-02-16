@@ -50,7 +50,7 @@ function App(){
       <main className='App'>
          <header>
           <h1>rancid tomatillos</h1>
-          <button><img src={homeIcon} onClick={() => handleView("homepage")}/></button>
+          <button className='homeButton'><img className='home' src={homeIcon} onClick={() => handleView("homepage")}/></button>
         </header>
         <div className='Details'>
           <MovieDetails details={details} />
