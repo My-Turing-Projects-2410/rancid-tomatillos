@@ -31,3 +31,17 @@ p {
   display: flex;
   justify-content: center;
 }
+
+.homeButton {
+  width: 60px;
+  background-color: #3e49b1;
+  border: none;
+}
+
+.home {
+  width: 100%;
+}
+
+.homeButton:hover {
+  cursor: pointer;
+}
