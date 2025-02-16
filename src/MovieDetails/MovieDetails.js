@@ -18,7 +18,7 @@ function MovieDetails({details}) {
         <div className='Genres'>
           {formatGenres(details.genre_ids)}
         </div>
-        <p>{details.overview}</p>
+        <p className='Overview'>{details.overview}</p>
       </div>
       
     </section>
