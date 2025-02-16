@@ -3,6 +3,13 @@
     background-color: #ffffff;
     border-radius: 10px;
     margin: 15px;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.MoviePoster:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 15px #7a87b0;
+    transform: translateY(-5px);
 }
 
 .MoviePoster > img {
@@ -17,7 +24,6 @@
     font-weight: normal !important; 
     margin: 5px 0px;
     font-size: small;
-    /* border: 2px solid blue; */
 }
 
 .Votes {
