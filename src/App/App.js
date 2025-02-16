@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import moviePosters from '../data/movie_posters';
-// import movieDetails from '../data/movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import './App.css';
@@ -10,7 +9,6 @@ import homeIcon from '../icons/home.png';
 function App(){
   const [ movieData, setMovieData ] = useState(moviePosters);
   const [ selectedMovieId, setselectedMovieId ] = useState(null);  
-  // const [ details, setDetails ] = useState(movieDetails);
   const [ view, setView ] = useState("homepage");
 
   function handleView(target='homepage', id=0) {

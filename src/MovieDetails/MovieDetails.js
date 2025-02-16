@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import './MovieDetails.css';
-// import movieDetails from '../data/movie_details'
-
 
 function MovieDetails({movieId}) {
   const [ details, setDetails ] = useState({});
