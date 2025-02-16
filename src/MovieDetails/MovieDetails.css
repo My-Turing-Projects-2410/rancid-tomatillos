@@ -3,29 +3,53 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid white;
-}
-
-.Description {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .Backdrop {
-    width: 100%;
-  }
+  width: 100%;
+}
 
 .Title {
-    color: white;
-    align-items: center;
-    border: 2px solid pink;
+  font-size: 37px;
+  color: #3d4ab1;
+  letter-spacing: 3px;
+  align-items: center;
+  margin-top: 30px;
+}
+
+
+.MovieDetails .Genres .genre {
+  color: #ffffff;
+  font-weight: bold;
+  background-color: #97c2ec;  
+  padding: 10px;
+  border: 2px solid white;
+  margin: 0px 2px 0px 2px;
+  border-radius: 12px;
 }
 
 .Genres {
-    display: flex;
+  margin: 20px;
+  display: flex;
+  margin-bottom: 10px;
 }
 
-.genre {
-    margin: 10px;
+.MovieDetails .Description p {
+  color: #232323;
+  font-weight: 400;
+  margin: 10px;
+  margin-bottom: 28px;
 }
+
+.Description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    min-height: 200px;
+    border-radius: 0px 0px 10px 10px;    
+}
+
+
