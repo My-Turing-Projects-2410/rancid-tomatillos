@@ -12,9 +12,9 @@ function MovieDetails({details}) {
 
   return (
     <section className='MovieDetails'>
-      <img className='Backdrop' src={details.backdrop_path}/>
+      <img src={details.backdrop_path} alt={details.title}/>
       <div className='Description'>
-        <h2 className='Title'>{details.title}</h2>
+        <h2>{details.title}</h2>
         <div className='Genres'>
           {formatGenres(details.genre_ids)}
         </div>

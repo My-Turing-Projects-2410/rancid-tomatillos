@@ -3,18 +3,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 2px solid white;
+    border-radius: 25px;
+    position: relative;
 }
+
+.MovieDetails img {
+    width: 100%;
+    border-radius: 25px;
+  }
 
 .Description {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 0px 0px 25px 25px;
+    position: absolute;
+    bottom: 0px;
+    height: 40%;
 }
-
-.Backdrop {
-    width: 100%;
-  }
 
 .Title {
     color: white;
@@ -28,4 +34,8 @@
 
 .genre {
     margin: 10px;
+}
+
+.MovieDetails p {
+    font-size: small;
 }
