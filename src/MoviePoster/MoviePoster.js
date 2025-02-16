@@ -3,9 +3,13 @@ import upvoteIcon from '../icons/upvote.png';
 import downvoteIcon from '../icons/downvote.png';
 
 function MoviePoster({ title, vote_count, image, id, handleUpvote, handleDownvote, handleView}) {
- 
+
+  const handleClick = () => {
+    handleView("movieDetails", id);
+  }
+
   return (
-    <section className='MoviePoster'>
+    <section className='MoviePoster' onClick={handleClick}>
       <img src={image} alt={title} onClick={() => handleView("movieDetails")}/>
       <div className='Votes'>
         <button onClick={() => handleUpvote(id)}>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import moviePosters from '../data/movie_posters';
-import movieDetails from '../data/movie_details';
+// import movieDetails from '../data/movie_details';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import './App.css';
@@ -9,11 +9,16 @@ import homeIcon from '../icons/home.png';
 
 function App(){
   const [ movieData, setMovieData ] = useState(moviePosters);
-  const [ details, setDetails ] = useState(movieDetails);
+  const [ selectedMovieId, setselectedMovieId ] = useState(null);  
+  // const [ details, setDetails ] = useState(movieDetails);
   const [ view, setView ] = useState("homepage");
 
-  function handleView(target, id=129) {
+  function handleView(target='homepage', id=0) {
+    console.log(`switch view to: ${target}, with movie id: ${id}`);
     setView(target);
+    if (id) {
+      setselectedMovieId(id)
+    }
   }
 
   function handleUpvote(id){
@@ -45,7 +50,7 @@ function App(){
         </div>
       </main>
     );
-  } else if (view === "movieDetails") {
+  } else if (view === "movieDetails" && selectedMovieId) {
     return (
       <main className='App'>
          <header>
@@ -53,7 +58,7 @@ function App(){
           <button className='homeButton'><img className='home' src={homeIcon} onClick={() => handleView("homepage")}/></button>
         </header>
         <div className='Details'>
-          <MovieDetails details={details} />
+          <MovieDetails movieId={selectedMovieId} />
         </div>
       </main>
     );

@@ -1,8 +1,24 @@
+import { useEffect, useState } from 'react';
 import './MovieDetails.css';
+// import movieDetails from '../data/movie_details'
 
-function MovieDetails({details}) {
+
+function MovieDetails({movieId}) {
+  const [ details, setDetails ] = useState({});
+
+  useEffect(() => {
+      fetchMovieDetails();
+  }, [])
+
+  function fetchMovieDetails() {
+    fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${movieId}`)
+      .then(response => response.json())
+      .then(data => setDetails(data))
+    .catch(error => console.log(error.message))
+  }
 
   function formatGenres(genres) {
+    if(!genres) return null;
     return genres.map((genre) => {
       return (
         <p key={genre} className='genre'>{genre}</p>
@@ -23,6 +39,7 @@ function MovieDetails({details}) {
       
     </section>
   );
+
 }
 
 export default MovieDetails;
