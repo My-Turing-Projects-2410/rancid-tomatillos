@@ -6,8 +6,8 @@ import searchIcon from '../icons/search.png';
 import homeIcon from '../icons/home.png';
 
 function App(){
-  const [ movieData, setMovieData ] = useState([]);
-  const [ details, setDetails ] = useState();
+  const [ movieData, setMovieData ] = useState(moviePosters);
+  const [ selectedMovieId, setselectedMovieId ] = useState(null);  
   const [ view, setView ] = useState("homepage");
 
   function getMovies() {
@@ -23,8 +23,12 @@ function App(){
     getMovies();
   }, [])
 
-  function handleView(target, id=129) {
+  function handleView(target, id) {
     setView(target);
+    
+    if (id) {
+      setselectedMovieId(id)
+    }
   }
 
   function handleUpvote(id){
@@ -59,7 +63,7 @@ function App(){
         </div>
       </main>
     );
-  } else if (view === "movieDetails") {
+  } else if (view === "movieDetails" && selectedMovieId) {
     return (
       <main className='App'>
          <header>
@@ -67,7 +71,7 @@ function App(){
           <button className='homeButton'><img className='home' src={homeIcon} onClick={() => handleView("homepage")}/></button>
         </header>
         <div className='Details'>
-          <MovieDetails details={details} />
+          <MovieDetails movieId={selectedMovieId} />
         </div>
       </main>
     );
