@@ -7,23 +7,17 @@
 }
 
 .MoviePoster:hover {
-    cursor: pointer;
     box-shadow: 0 5px 15px #7a87b0;
     transform: translateY(-5px);
 }
 
-.MoviePoster > img {
+.MoviePoster img {
     width: 100%;
     border-radius: 10px 10px 0px 0px;
 }
 
-.Votes > p {
-    color: black;
-    text-align: center;
-    padding: 3px 0px;
-    font-weight: normal !important; 
-    margin: 5px 0px;
-    font-size: small;
+.MoviePoster img:hover {
+    cursor: pointer;
 }
 
 .Votes {
@@ -33,7 +27,16 @@
     margin-bottom: 5px;
 }
 
-.Votes > button {
+.Votes p {
+    color: black;
+    text-align: center;
+    padding: 3px 0px;
+    font-weight: normal !important; 
+    margin: 5px 0px;
+    font-size: small;
+}
+
+.Votes button {
     border: none;
     background-color: #ffffff;
     width: 20px;
@@ -42,5 +45,9 @@
 
 .VoteImage {
     width: 100%;
+}
+
+.VoteImage:hover {
+    cursor: pointer;
 }
 
