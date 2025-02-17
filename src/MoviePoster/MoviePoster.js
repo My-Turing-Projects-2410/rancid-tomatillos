@@ -9,8 +9,8 @@ function MoviePoster({ title, vote_count, image, id, handleUpvote, handleDownvot
   }
 
   return (
-    <section className='MoviePoster' onClick={handleClick}>
-      <img src={image} alt={title} onClick={() => handleView("movieDetails")}/>
+    <section className='MoviePoster'>
+      <img src={image} alt={title} onClick={() => {handleClick()}}/>
       <div className='Votes'>
         <button onClick={() => handleUpvote(id)}>
           <img  className='VoteImage Up' src={upvoteIcon} alt='upvote'/>

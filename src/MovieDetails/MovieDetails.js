@@ -4,16 +4,16 @@ import './MovieDetails.css';
 function MovieDetails({movieId}) {
   const [ details, setDetails ] = useState({});
 
-  useEffect(() => {
-      fetchMovieDetails();
-  }, [])
-
   function fetchMovieDetails() {
     fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${movieId}`)
       .then(response => response.json())
       .then(data => setDetails(data))
     .catch(error => console.log(error.message))
   }
+
+  useEffect(() => {
+    fetchMovieDetails();
+  }, [])
 
   function formatGenres(genres) {
     if(!genres) return null;

@@ -24,8 +24,8 @@ function App(){
   }, [])
 
   function handleView(target, id) {
-    setView(target);
-    
+    setView(target); 
+
     if (id) {
       setselectedMovieId(id)
     }
