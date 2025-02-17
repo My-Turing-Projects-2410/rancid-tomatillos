@@ -21,7 +21,7 @@ function App(){
 
   useEffect(() => {
     getMovies();
-  }, [])
+  })
 
   function handleView(target, id) {
     setView(target); 
@@ -31,22 +31,18 @@ function App(){
     }
   }
 
-  function handleUpvote(id){
-    const upvotedMovie = movieData.map((movie) => {
-      if (movie.id === id){
-        return { ...movie, vote_count: movie.vote_count + 1}
-      }
-      return movie  
+  function handleVote(id, direction) {
+    const vote_data = { vote_direction: direction }
+    fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(vote_data),
     })
-    setMovieData(upvotedMovie)
-  }
-
-  function handleDownvote(id) {
-    const updatedMovieData = movieData.map((movie) => {
-       return movie.id === id ? {...movie, vote_count: movie.vote_count - 1 } : movie
-    });
-   
-    setMovieData(updatedMovieData);
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.log(error.message))
   }
 
   if (view === "homepage") {
@@ -57,8 +53,7 @@ function App(){
         </header>
         <div className='Container'>
           <MoviesContainer  movieData={movieData} 
-                            handleUpvote={handleUpvote} 
-                            handleDownvote={handleDownvote} 
+                            handleVote={handleVote} 
                             handleView={handleView}/>
         </div>
       </main>
