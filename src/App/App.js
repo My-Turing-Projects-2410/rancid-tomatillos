@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import moviePosters from '../data/movie_posters';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import './App.css';
@@ -11,9 +10,22 @@ function App(){
   const [ selectedMovieId, setselectedMovieId ] = useState(null);  
   const [ view, setView ] = useState("homepage");
 
-  function handleView(target='homepage', id=0) {
-    console.log(`switch view to: ${target}, with movie id: ${id}`);
+  function getMovies() {
+    fetch('https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies')
+      .then(response => response.json())
+      .then(data => {
+        setMovieData(data);
+      })
+      .catch(error => console.log(error.message))
+  }
+
+  useEffect(() => {
+    getMovies();
+  }, [])
+
+  function handleView(target, id) {
     setView(target);
+    
     if (id) {
       setselectedMovieId(id)
     }
@@ -44,7 +56,10 @@ function App(){
           <h1>rancid tomatillos</h1>
         </header>
         <div className='Container'>
-          <MoviesContainer  movieData={movieData} handleUpvote={handleUpvote} handleDownvote={handleDownvote} handleView={handleView}/>
+          <MoviesContainer  movieData={movieData} 
+                            handleUpvote={handleUpvote} 
+                            handleDownvote={handleDownvote} 
+                            handleView={handleView}/>
         </div>
       </main>
     );
