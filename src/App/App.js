@@ -6,7 +6,7 @@ import searchIcon from '../icons/search.png';
 import homeIcon from '../icons/home.png';
 
 function App(){
-  const [ movieData, setMovieData ] = useState(moviePosters);
+  const [ movieData, setMovieData ] = useState([]);
   const [ selectedMovieId, setselectedMovieId ] = useState(null);  
   const [ view, setView ] = useState("homepage");
 
