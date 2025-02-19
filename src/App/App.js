@@ -21,7 +21,7 @@ function App(){
 
   useEffect(() => {
     getMovies();
-  })
+  }, [])
 
   function handleView(target, id) {
     setView(target); 
@@ -41,7 +41,7 @@ function App(){
       body: JSON.stringify(vote_data),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => getMovies())
       .catch(error => console.log(error.message))
   }
 

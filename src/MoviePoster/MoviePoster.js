@@ -13,7 +13,7 @@ function MoviePoster({ title, vote_count, image, id, handleVote, handleView}) {
       <img src={image} alt={title} onClick={() => {handleClick()}}/>
       <div className='Votes'>
         <button onClick={() => handleVote(id, 'up')}>
-          <img  className='VoteImage Up' src={upvoteIcon} alt='upvote'/>
+          <img  className='VoteImage Up' src={upvoteIcon} alt='upVote'/>
         </button>
         <p>{vote_count}</p>
         <button onClick={() => handleVote(id, 'down')}>
