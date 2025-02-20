@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './MovieDetails.css';
 
-function MovieDetails({movieId}) {
+function MovieDetails() {
+  const { movieId } = useParams();
   const [ details, setDetails ] = useState({});
 
   function fetchMovieDetails() {
@@ -34,10 +36,8 @@ function MovieDetails({movieId}) {
         </div>
         <p className='Overview'>{details.overview}</p>
       </div>
-      
     </section>
   );
-
 }
 
 export default MovieDetails;

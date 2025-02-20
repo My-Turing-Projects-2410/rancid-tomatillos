@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import './App.css';
@@ -7,8 +8,6 @@ import homeIcon from '../icons/home.png';
 
 function App(){
   const [ movieData, setMovieData ] = useState([]);
-  const [ selectedMovieId, setselectedMovieId ] = useState(null);  
-  const [ view, setView ] = useState("homepage");
 
   function getMovies() {
     fetch('https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies')
@@ -22,14 +21,6 @@ function App(){
   useEffect(() => {
     getMovies();
   }, [])
-
-  function handleView(target, id) {
-    setView(target); 
-
-    if (id) {
-      setselectedMovieId(id)
-    }
-  }
 
   function handleVote(id, direction) {
     const vote_data = { vote_direction: direction }
@@ -45,32 +36,20 @@ function App(){
       .catch(error => console.log(error.message))
   }
 
-  if (view === "homepage") {
     return (
       <main className='App'>
         <header>
           <h1>rancid tomatillos</h1>
+          {useLocation().pathname !== '/' && (<Link to="/" className="homeButton"><img className='home' src={homeIcon} /></Link> )}
         </header>
-        <div className='Container'>
-          <MoviesContainer  movieData={movieData} 
-                            handleVote={handleVote} 
-                            handleView={handleView}/>
-        </div>
+        <section className="content">
+          <Routes>
+            <Route path="/" element={<MoviesContainer movieData={movieData} handleVote={handleVote}/>} />
+            <Route path="/:movieId" element={<MovieDetails/>} />
+          </Routes>
+        </section>
       </main>
     );
-  } else if (view === "movieDetails" && selectedMovieId) {
-    return (
-      <main className='App'>
-         <header>
-          <h1>rancid tomatillos</h1>
-          <button className='homeButton'><img className='home' src={homeIcon} onClick={() => handleView("homepage")}/></button>
-        </header>
-        <div className='Details'>
-          <MovieDetails movieId={selectedMovieId} />
-        </div>
-      </main>
-    );
-  }
 }
 
 export default App;
