@@ -10,7 +10,6 @@ body {
 header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 25px;
 }
 
@@ -27,11 +26,6 @@ p {
   color: white;
 }
 
-.Details {
-  display: flex;
-  justify-content: center;
-}
-
 .homeButton {
   width: 60px;
   background-color: #3e49b1;
@@ -44,4 +38,11 @@ p {
 
 .homeButton:hover {
   cursor: pointer;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
