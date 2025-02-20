@@ -13,19 +13,17 @@ function App(){
   function getMovies() {
     fetch('https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies')
       .then(response => response.json())
-      .then(data => { console.log("Fetched movie data:", data);
+      .then(data => {
         setMovieData(data);
       })
       .catch(error => console.log(error.message))
   }
 
   useEffect(() => {
-    console.log('movieData:', movieData)
     getMovies();
   }, [])
 
   function handleView(target, id) {
-    console.log('handleView called with:', target, id)
     setView(target); 
 
     if (id) {
@@ -43,7 +41,7 @@ function App(){
       body: JSON.stringify(vote_data),
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => data)
       .catch(error => console.log(error.message))
   }
 
