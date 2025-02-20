@@ -41,7 +41,7 @@ function App(){
       body: JSON.stringify(vote_data),
     })
       .then(response => response.json())
-      .then(data => data)
+      .then(data => getMovies())
       .catch(error => console.log(error.message))
   }
 
