@@ -12,11 +12,11 @@ function MoviePoster({ title, vote_count, image, id, handleVote, handleView}) {
     <section className='MoviePoster'>
       <img src={image} alt={title} onClick={() => {handleClick()}}/>
       <div className='Votes'>
-        <button onClick={() => handleVote(id, 'up')}>
+        <button className='upVoteBtn' onClick={() => handleVote(id, 'up')}>
           <img  className='VoteImage Up' src={upvoteIcon} alt='upVote'/>
         </button>
         <p>{vote_count}</p>
-        <button onClick={() => handleVote(id, 'down')}>
+        <button className='downVoteBtn' onClick={() => handleVote(id, 'down')}>
           <img className='VoteImage Down' src={downvoteIcon} alt='downVote' />
         </button>
       </div>
