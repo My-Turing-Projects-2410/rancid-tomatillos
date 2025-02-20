@@ -16,7 +16,7 @@ describe('Movie Posters / Homepage view flow', () => {
   it('should fetch movies from API and display them', () => {
     cy.get('.Container').should('exist')
     cy.get('.MoviesContainer').should('exist')
-    cy.get('.MoviePoster').should('have.length', 4)
+    cy.get('.MoviePoster').should('have.length', 5)
     cy.get('.MoviePoster').find('.upVoteBtn').should('exist')
     cy.get('.MoviePoster').find('.upVoteBtn img').should('have.attr', 'alt', 'upVote')
     cy.get('.MoviePoster').find('.downVoteBtn').should('exist')
@@ -44,11 +44,11 @@ describe('Movie Posters / Homepage view flow', () => {
           fixture: 'down_voted_movie_posters.json'
       }).as('getMovies')
 
-      cy.get('.MoviePoster').eq(1).find('.Votes p').should('have.text', '18018')
-      cy.get('.MoviePoster').eq(1).find('.downVoteBtn').click()
+      cy.get('.MoviePoster').eq(2).find('.Votes p').should('have.text', '18018')
+      cy.get('.MoviePoster').eq(2).find('.downVoteBtn').click()
       cy.wait('@updateVote')
       cy.wait('@getMovies')
-      cy.get('.MoviePoster').eq(1).find('.Votes p').should('have.text', '18017')
+      cy.get('.MoviePoster').eq(2).find('.Votes p').should('have.text', '18017')
     }); 
   });
 });
