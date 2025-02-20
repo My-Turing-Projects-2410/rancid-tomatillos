@@ -9,11 +9,6 @@ describe('Movie Details View flow', () => {
       statusCode: 200,
       fixture: "movie_details.json"
     }).as('getMovieDetails');
-
-    // cy.intercept('GET', 'https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/826510', {
-    //   statusCode: 200, 
-    //   fixture: "movie_details.json"
-    // }).as('getMovieDetails');
     
     cy.visit('http://localhost:3000');
     cy.wait('@getMovies');
@@ -23,8 +18,7 @@ describe('Movie Details View flow', () => {
   it('should display the correct movie details when a movie is clicked', () => {
     cy.get(".MoviesContainer img").first().click();
     cy.wait("@getMovieDetails");
-    // cy.get('[data-testid="movie-826510"]').should('exist');
-    // cy.get('[data-testid="movie-826510"]').click();
+
     cy.get('.MovieDetails').should('exist'); 
     cy.get('.Description h2').should('contain', 'Harold and the Purple Crayon');
     cy.get('.Genres p').should('exist');
