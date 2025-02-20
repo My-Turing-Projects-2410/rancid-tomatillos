@@ -21,16 +21,30 @@ describe('Movie Details View flow', () => {
   })  
 
   it('should display the correct movie details when a movie is clicked', () => {
-    cy.get('[data-testid="movie-826510"]').should('exist');
-    cy.get('[data-testid="movie-826510"]').click();
-    cy.wait('@getMovieDetails');
+    cy.get(".MoviesContainer img").first().click();
+    cy.wait("@getMovieDetails");
+    // cy.get('[data-testid="movie-826510"]').should('exist');
+    // cy.get('[data-testid="movie-826510"]').click();
     cy.get('.MovieDetails').should('exist'); 
-    // cy.get('.MoviePoster').first().click()
-    // cy.get('.Details').should('exist')
     cy.get('.Description h2').should('contain', 'Harold and the Purple Crayon');
     cy.get('.Genres p').should('exist');
     cy.get('.Genres p').first().should('contain', 'Adventure');
+    cy.get('.Genres').should("contain", "Family");
+    cy.get('.Genres').should("contain", "Fantasy");
+    cy.get('.Genres p').last().should('contain', 'Comedy');
     cy.get('.Overview').should('contain', 'Inside of his book, adventurous Harold')
   })
+
+  it('should display the correct movie details when a movie is clicked', () => {
+    cy.get(".MoviesContainer img").first().click();
+    cy.wait("@getMovieDetails");
+
+    cy.get(".homeButton").click();
+
+    cy.get(".MoviesContainer").should("exist");
+    cy.get("h1").should("contain", "rancid tomatillos");
+  })
+
+
 
 })

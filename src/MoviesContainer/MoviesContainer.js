@@ -1,28 +1,26 @@
-import './MoviesContainer.css';
-import MoviePoster from '../MoviePoster/MoviePoster'
+  import './MoviesContainer.css';
+  import MoviePoster from '../MoviePoster/MoviePoster'
 
-function Movies({ movieData, handleVote, handleView}) {
-  
-  const movieCards = movieData.map((movie) => {
+  function Movies({ movieData, handleVote, handleView}) {
+    const movieCards = movieData.map((movie) => {
+      return (
+        <MoviePoster
+          title={movie.title} 
+          vote_count={movie.vote_count} 
+          image={movie.poster_path} 
+          id={movie.id}
+          key={movie.id}
+          handleVote={handleVote}
+          handleView={handleView}
+        />
+      );
+    });
+
     return (
-
-      <MoviePoster
-        title={movie.title} 
-        vote_count={movie.vote_count} 
-        image={movie.poster_path} 
-        id={movie.id}
-        key={movie.id}
-        handleVote={handleVote}
-        handleView={handleView}
-      />
+        <section className='MoviesContainer'>
+          {movieCards}
+        </section>
     );
-  });
-
-  return (
-      <section className='MoviesContainer'>
-        {movieCards}
-      </section>
-  );
-}
-  
-export default Movies;
+  }
+    
+  export default Movies;
