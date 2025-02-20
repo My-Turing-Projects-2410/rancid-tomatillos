@@ -13,7 +13,7 @@ function MovieDetails({movieId}) {
 
   useEffect(() => {
     fetchMovieDetails();
-  }, [])
+  }, [movieId])
 
   function formatGenres(genres) {
     if(!genres) return null;

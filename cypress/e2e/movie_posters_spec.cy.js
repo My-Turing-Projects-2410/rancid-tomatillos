@@ -4,10 +4,14 @@ describe('Movie Posters / Homepage view flow', () => {
     cy.intercept('GET', 'https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies', {
       statusCode: 200, 
       fixture: "movie_posters.json"
-    })
+    });
 
-    cy.visit('http://localhost:3000')
-  })
+    cy.visit('http://localhost:3000');
+  });
+
+  it('displays the application title', () => {
+    cy.get('h1').should('be.visible').and('contain', 'rancid tomatillos')
+  });
 
   it('should fetch movies from API and display them', () => {
     cy.get('.Container').should('exist')
@@ -18,10 +22,10 @@ describe('Movie Posters / Homepage view flow', () => {
     cy.get('.MoviePoster').find('.downVoteBtn').should('exist')
     cy.get('.MoviePoster').find('.downVoteBtn img').should('have.attr', 'alt', 'downVote')
     cy.get('.MoviePoster').first().find('img').should('have.attr', 'alt', 'The Dark Knight')
-    cy.get('.MoviePoster').first().find('.Votes p').should('have.text', (32544).toString())
+    cy.get('.MoviePoster').first().find('.Votes p').should('have.text', '32544')
     cy.get('.MoviePoster').last().find('img').should('have.attr', 'alt', 'Pulp Fiction')
-    cy.get('.MoviePoster').last().find('.Votes p').should('have.text', (27642).toString())
-  })
+    cy.get('.MoviePoster').last().find('.Votes p').should('have.text', '27642')
+  });
 
   describe('Voting user flow', () => {
     it('should decrement the vote count when downVote button is pushed for a certain poster', () => {
@@ -45,8 +49,6 @@ describe('Movie Posters / Homepage view flow', () => {
       cy.wait('@updateVote')
       cy.wait('@getMovies')
       cy.get('.MoviePoster').eq(1).find('.Votes p').should('have.text', '18017')
-    }) 
-
-    
-  })
-})
+    }); 
+  });
+});
