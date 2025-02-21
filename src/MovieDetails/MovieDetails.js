@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import './MovieDetails.css';
+
 
 function fetchMovieDetails(movieId, setDetails) {
   fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${movieId}`)
@@ -17,7 +19,8 @@ function formatGenres(genres) {
     })
   }
 
-function MovieDetails({movieId}) {
+function MovieDetails() { 
+  const { movieId } = useParams();
   const [ details, setDetails ] = useState({});
 
   useEffect(() => {
@@ -35,10 +38,8 @@ function MovieDetails({movieId}) {
         </div>
         <p className='Overview'>{details.overview}</p>
       </div>
-      
     </section>
   );
-
 }
 
 export default MovieDetails;
