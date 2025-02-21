@@ -49,5 +49,28 @@ describe('Movie Posters / Homepage view flow', () => {
       cy.wait('@getMovies')
       cy.get('.MoviePoster').eq(2).find('.Votes p').should('have.text', '18017')
     }); 
+
+    it('should increment the vote count when upVote button is clicked for a certain poster', () => {
+      cy.intercept('PATCH', 'https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/496243', {
+        statusCode: 200,
+        body: { 
+              id: 496243,
+              poster_path: "https://image.tmdb.org/t/p/original//7IiTTgloJzvGI1TAYymCfbfl3vT.jpg",
+              title: "Parasite",
+              vote_count: 18019
+              }
+      }).as('updateVote')
+
+      cy.intercept('GET', 'https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies', {
+          statusCode: 200, 
+          fixture: 'up_voted_movie_posters.json'
+      }).as('getMovies')
+
+      cy.get('.MoviePoster').eq(2).find('.Votes p').should('have.text', '18018')
+      cy.get('.MoviePoster').eq(2).find('.upVoteBtn').click()
+      cy.wait('@updateVote')
+      cy.wait('@getMovies')
+      cy.get('.MoviePoster').eq(2).find('.Votes p').should('have.text', '18019')
+    }); 
   });
 });
