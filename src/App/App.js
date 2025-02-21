@@ -39,7 +39,7 @@ function App(){
       <main className='App'>
         <header>
           <h1>rancid tomatillos</h1>
-          {useLocation().pathname !== '/' && (<Link to="/" className="homeButton"><img className='home' src={homeIcon} /></Link> )}
+          {useLocation().pathname !== '/' && (<Link to="/" className="homeButton"><img className='home' alt="Home" src={homeIcon} /></Link> )}
         </header>
         <section className="content">
           <Routes>
