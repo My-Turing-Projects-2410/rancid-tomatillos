@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import './App.css';
-import searchIcon from '../icons/search.png';
 import homeIcon from '../icons/home.png';
 
 function App(){
@@ -63,7 +62,7 @@ function App(){
       <main className='App'>
          <header>
           <h1>rancid tomatillos</h1>
-          <button className='homeButton'><img className='home' src={homeIcon} onClick={() => handleView("homepage")}/></button>
+          <button className='homeButton'><img className='home' alt="Home Button" src={homeIcon} onClick={() => handleView("homepage")}/></button>
         </header>
         <div className='Details'>
           <MovieDetails movieId={selectedMovieId} />
