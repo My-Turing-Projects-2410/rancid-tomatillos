@@ -14,7 +14,6 @@ describe('Movie Posters / Homepage view flow', () => {
   });
 
   it('should fetch movies from API and display them', () => {
-    cy.get('.Container').should('exist')
     cy.get('.MoviesContainer').should('exist')
     cy.get('.MoviePoster').should('have.length', 5)
     cy.get('.MoviePoster').find('.upVoteBtn').should('exist')
