@@ -3,7 +3,6 @@ import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
 import './App.css';
-import searchIcon from '../icons/search.png';
 import homeIcon from '../icons/home.png';
 
 function App(){

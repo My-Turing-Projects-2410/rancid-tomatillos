@@ -2,22 +2,15 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import './MovieDetails.css';
 
-function MovieDetails() {
-  const { movieId } = useParams();
-  const [ details, setDetails ] = useState({});
 
-  function fetchMovieDetails() {
-    fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${movieId}`)
-      .then(response => response.json())
-      .then(data => setDetails(data))
-    .catch(error => console.log(error.message))
-  }
+function fetchMovieDetails(movieId, setDetails) {
+  fetch(`https://rancid-tomatillos-api-ce4a3879078e.herokuapp.com/api/v1/movies/${movieId}`)
+    .then(response => response.json())
+    .then(data => setDetails(data))
+  .catch(error => console.log(error.message))
+}
 
-  useEffect(() => {
-    fetchMovieDetails();
-  }, [movieId])
-
-  function formatGenres(genres) {
+function formatGenres(genres) {
     if(!genres) return null;
     return genres.map((genre) => {
       return (
@@ -25,6 +18,15 @@ function MovieDetails() {
       );
     })
   }
+
+function MovieDetails() { 
+  const { movieId } = useParams();
+  const [ details, setDetails ] = useState({});
+
+  useEffect(() => {
+    fetchMovieDetails(movieId, setDetails);
+  }, [movieId])
+
 
   return (
     <section className='MovieDetails'>
