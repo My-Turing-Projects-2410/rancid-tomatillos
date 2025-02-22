@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import MovieDetails from '../MovieDetails/MovieDetails';
+import RouteNotFound from '../RouteNotFound/RouteNotFound'
 import './App.css';
 import homeIcon from '../icons/home.png';
+
 
 function App(){
   const [ movieData, setMovieData ] = useState([]);
@@ -45,6 +47,8 @@ function App(){
           <Routes>
             <Route path="/" element={<MoviesContainer movieData={movieData} handleVote={handleVote}/>} />
             <Route path="/:movieId" element={<MovieDetails/>} />
+            <Route path="/RouteNotFound" element={<RouteNotFound/>} />
+            <Route path="/*" element={<RouteNotFound/>} />
           </Routes>
         </section>
       </main>

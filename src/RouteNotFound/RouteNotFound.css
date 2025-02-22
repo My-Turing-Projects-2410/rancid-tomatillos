@@ -1,0 +1,21 @@
+.NotFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 70%;
+  padding: 80px 10px;
+  margin: 80px;
+  border-radius: 20px;
+}
+
+.StatusMessage {
+  color: rgb(244, 203, 38);
+  font-size: 200%;
+}
+
+.ErrorMessage {
+  color: black !important; 
+  font-size: 150%;
+}
